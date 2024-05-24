@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "rsserpent-plugin-applovin"
+name = "rsserpent-plugin-applovin-sdk-update"
 version = "0.1.0"
 
 authors = ["EkkoG <beijiu572@gmail.com>"]
@@ -24,14 +24,14 @@ pytest-xdist = "^2.3.0"
 requests = "^2.26.0"
 
 [tool.poetry.plugins."rsserpent.plugin"]
-"applovin" = "rsserpent_plugin_applovin:plugin"
+"applovin" = "rsserpent_plugin_applovin_sdk_update:plugin"
 
 [tool.black]
 include = '\.pyi?$'
 target-version = ["py310"]
 
 [tool.coverage.run]
-include = ["rsserpent_plugin_applovin/*"]
+include = ["rsserpent_plugin_applovin_sdk_update/*"]
 
 [tool.coverage.report]
 exclude_lines = [
