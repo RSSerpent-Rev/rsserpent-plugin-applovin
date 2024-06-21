@@ -1,14 +1,13 @@
-from typing import Any, Dict
+from typing import Any
 
 import arrow
 from rsserpent_rev.utils import HTTPClient, cached
-
 
 path = "/applovin/sdk-update/{platform}"
 
 
 @cached
-async def provider(platform: str) -> Dict[str, Any]:
+async def provider(platform: str) -> dict[str, Any]:
     """Return the latest changelog of AppLovin Max SDK for the specified platform.
 
     Args:
@@ -31,7 +30,7 @@ async def provider(platform: str) -> Dict[str, Any]:
         "godot": "Godot",
     }
     if platform.lower() not in map_dict:
-        raise ValueError(f"Unsupported platform: {platform}")
+        raise ValueError(f"Unsupported platform: {platform}")  # noqa: TRY003
 
     platform = platform.lower()
 
@@ -44,7 +43,7 @@ async def provider(platform: str) -> Dict[str, Any]:
         {
             "title": f"AppLovin Max {map_dict[platform]} SDK {item['version']} 更新",
             "description": item["content"],
-            "link": url,
+            "link": f"https://developers.applovin.com/en/{platform}/changelog",
             "pub_date": arrow.get(item["published_at"], "MMMM D, YYYY"),
         }
         for item in user_info
